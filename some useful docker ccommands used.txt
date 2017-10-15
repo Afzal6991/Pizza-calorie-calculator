@@ -1,0 +1,26 @@
+
+python retrain.py \
+  --bottleneck_dir=bottlenecks \
+  --how_many_training_steps=500 \
+  --model_dir=inception \
+  --output_graph=retrained_graph.pb \
+  --output_labels=retrained_labels.txt \
+  --image_dir=fastfood
+
+
+
+
+
+
+docker run -it \
+  --volume ${HOME}/tf_files:/tf_files \
+  --workdir /foodadulteration \
+  tensorflow/tensorflow:1.1.0 bash
+
+
+python retrain.py \
+  --bottleneck_dir=bottlenecks \
+  --model_dir=inception \
+  --output_graph=retrained_graph.pb \
+  --output_labels=retrained_labels.txt \
+  --image_dir=fastfood
